@@ -1,0 +1,122 @@
+.testimonials-section {
+  width: 100vw;
+  background: #f9fafb; /* Light gray background */
+  padding: 3rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.testimonials-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827; /* Dark heading */
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+.testimonials-container {
+  width: 100%;
+  position: relative;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll-testimonials 25s linear infinite;
+  width: calc(300px * 10 + 2rem * 9);
+}
+
+.testimonials-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-testimonials {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 5 - 2rem * 4));
+  }
+}
+
+.testimonial-card {
+  flex: 0 0 300px;
+  background: #ffffff; /* White cards */
+  border: 1px solid #e5e7eb; /* Light border */
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  padding: 1.8rem 1.5rem;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-review {
+  font-size: 1.05rem;
+  color: #374151; /* Dark gray text */
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.testimonial-author {
+  border-top: 1px solid #e5e7eb; /* Light border */
+  padding-top: 1rem;
+  text-align: left;
+}
+
+.testimonial-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827; /* Dark heading */
+  margin: 0 0 0.3rem 0;
+}
+
+.testimonial-role {
+  font-size: 0.9rem;
+  color: #3b82f6; /* Blue accent */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .testimonials-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .testimonials-track {
+    animation-duration: 20s;
+    gap: 1.5rem;
+    width: calc(280px * 10 + 1.5rem * 9);
+  }
+  
+  @keyframes scroll-testimonials {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-280px * 5 - 1.5rem * 4));
+    }
+  }
+  
+  .testimonial-card {
+    flex: 0 0 280px;
+    padding: 1.5rem 1.2rem;
+    min-height: 160px;
+  }
+}

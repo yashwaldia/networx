@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Evis Security Networks</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f9fafb;
+            color: #111827;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: 36px;
+            width: auto;
+        }
+
+        .back-home-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-home-btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .products-page {
+            display: flex;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            gap: 2rem;
+        }
+
+        /* Filters Sidebar */
+        .filters-sidebar {
+            width: 280px;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .filter-section {
+            margin-bottom: 2rem;
+        }
+
+        .filter-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .filter-option:hover {
+            background: #f3f4f6;
+        }
+
+        .filter-option input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #3b82f6;
+        }
+
+        .filter-option label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        .price-range {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .price-input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            max-width: 100px;
+        }
+
+        /* Products Grid */
+        .products-content {
+            flex: 1;
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .products-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            background: white;
+            font-size: 0.9rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Exactly 3 per row */
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 420px; /* Fixed height for consistency */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 200px; /* Square-ish image */
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-icon {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 45px;
+            height: 45px;
+            background: rgba(59, 130, 246, 0.9);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .product-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+
+        .product-info {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: #6b7280;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            color: #3b82f6;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-btn {
+            width: 100%;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.7rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        .product-btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 per row on tablet */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-page {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+            
+            .filters-sidebar {
+                width: 100%;
+                position: static;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr; /* 1 per row on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <img src="logo.png" alt="Evis Security Networks" class="navbar-logo">
+            <a href="/" class="back-home-btn">
+                <i class="fas fa-home"></i>
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="products-page">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <div class="filter-section">
+                <h3>Brands</h3>
+                <div class="filter-group">
+                    <div class="filter-option">
+                        <input type="checkbox" id="hikvision" name="brand" value="hikvision">
+                        <label for="hikvision">Hikvision</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="dahua" name="brand" value="dahua">
+                        <label for="dahua">Dahua</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="cpplus" name="brand" value="cpplus">
+                        <label for="cpplus">CP Plus</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="honeywell" name="brand" value="honeywell">
+                        <label for="honeywell">Honeywell</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="bosch" name="brand" value="bosch">
+                        <label for="bosch">Bosch</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="samsung" name="brand" value="samsung">
+                        <label for="samsung">Samsung</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Price Range</h3>
+                <div class="price-range">
+                    <input type="number" class="price-input" placeholder="Min" id="min-price">
+                    <span>-</span>
+                    <input type="number" class="price-input" placeholder="Max" id="max-price">
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Product Type</h3>
+                <div class="filter-group">
+                    <div class="filter-option">
+                        <input type="checkbox" id="surveillance" name="type" value="surveillance">
+                        <label for="surveillance">Surveillance</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="fire-safety" name="type" value="fire-safety">
+                        <label for="fire-safety">Fire Safety</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="access-control" name="type" value="access-control">
+                        <label for="access-control">Access Control</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="communication" name="type" value="communication">
+                        <label for="communication">Communication</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="alarms" name="type" value="alarms">
+                        <label for="alarms">Security Alarms</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Features</h3>
+                <div class="filter-group">
+                    <div class="filter-option">
+                        <input type="checkbox" id="wireless" name="features" value="wireless">
+                        <label for="wireless">Wireless</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="night-vision" name="features" value="night-vision">
+                        <label for="night-vision">Night Vision</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="mobile-app" name="features" value="mobile-app">
+                        <label for="mobile-app">Mobile App</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="hd-quality" name="features" value="hd-quality">
+                        <label for="hd-quality">HD Quality</label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Products Content -->
+        <main class="products-content">
+            <div class="products-header">
+                <h1>All Products</h1>
+                <select class="sort-select" id="sort-products">
+                    <option value="name">Sort by Name</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Comprehensive products data based on Evis Security Networx offerings
+        const products = [
+            // CCTV & Surveillance
+            {
+                id: 1,
+                name: "HD 4MP CCTV Camera",
+                price: "₹2,500",
+                priceNum: 2500,
+                category: "Surveillance",
+                brand: "hikvision",
+                type: "surveillance",
+                features: ["night-vision", "hd-quality"],
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Advanced HD surveillance camera with night vision and motion detection",
+                icon: "fas fa-camera"
+            },
+            {
+                id: 2,
+                name: "Colour Indoor Camera",
+                price: "₹1,800",
+                priceNum: 1800,
+                category: "Surveillance",
+                brand: "cpplus",
+                type: "surveillance",
+                features: ["hd-quality"],
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "High-quality indoor color camera for home security",
+                icon: "fas fa-video"
+            },
+            {
+                id: 3,
+                name: "Colour Outdoor Bullet Camera",
+                price: "₹3,200",
+                priceNum: 3200,
+                category: "Surveillance",
+                brand: "hikvision",
+                type: "surveillance",
+                features: ["night-vision", "hd-quality"],
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Weather-resistant outdoor bullet camera with night vision",
+                icon: "fas fa-camera"
+            },
+            {
+                id: 4,
+                name: "High Speed Dome Camera",
+                price: "₹8,500",
+                priceNum: 8500,
+                category: "Surveillance",
+                brand: "dahua",
+                type: "surveillance",
+                features: ["hd-quality", "mobile-app"],
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "PTZ dome camera with high-speed rotation and zoom",
+                icon: "fas fa-video"
+            },
+            {
+                id: 5,
+                name: "Wireless CCTV Camera",
+                price: "₹4,200",
+                priceNum: 4200,
+                category: "Surveillance",
+                brand: "cpplus",
+                type: "surveillance",
+                features: ["wireless", "mobile-app", "hd-quality"],
+                image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Battery powered wireless security camera with mobile app",
+                icon: "fas fa-wifi"
+            },
+            {
+                id: 6,
+                name: "Digital Video Recorder",
+                price: "₹6,500",
+                priceNum: 6500,
+                category: "Surveillance",
+                brand: "hikvision",
+                type: "surveillance",
+                features: ["hd-quality"],
+                image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Standalone digital video recorder for CCTV systems",
+                icon: "fas fa-hdd"
+            },
+
+            // Fire Safety Systems
+            {
+                id: 7,
+                name: "Smoke Detection System",
+                price: "₹3,200",
+                priceNum: 3200,
+                category: "Fire Safety",
+                brand: "honeywell",
+                type: "fire-safety",
+                features: ["wireless"],
+                image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Advanced smoke detection with wireless connectivity",
+                icon: "fas fa-fire-extinguisher"
+            },
+            {
+                id: 8,
+                name: "Fire Alarm Control Panel",
+                price: "₹5,000",
+                priceNum: 5000,
+                category: "Fire Safety",
+                brand: "bosch",
+                type: "fire-safety",
+                features: [],
+                image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Central fire alarm control panel for building safety",
+                icon: "fas fa-fire"
+            },
+            {
+                id: 9,
+                name: "Heat Sensor Detector",
+                price: "₹1,500",
+                priceNum: 1500,
+                category: "Fire Safety",
+                brand: "honeywell",
+                type: "fire-safety",
+                features: ["wireless"],
+                image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Temperature-based fire detection sensor",
+                icon: "fas fa-thermometer-half"
+            },
+
+            // Access Control & Biometric
+            {
+                id: 10,
+                name: "Fingerprint Scanner",
+                price: "₹8,500",
+                priceNum: 8500,
+                category: "Access Control",
+                brand: "samsung",
+                type: "access-control",
+                features: ["mobile-app"],
+                image: "https://images.unsplash.com/photo-1586092918161-2d8882ab35b6?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Biometric fingerprint access control system",
+                icon: "fas fa-fingerprint"
+            },
+            {
+                id: 11,
+                name: "Digital Door Lock",
+                price: "₹12,000",
+                priceNum: 12000,
+                category: "Access Control",
+                brand: "samsung",
+                type: "access-control",
+                features: ["mobile-app", "wireless"],
+                image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Smart digital door lock with keypad and app control",
+                icon: "fas fa-lock"
+            },
+            {
+                id: 12,
+                name: "Time Attendance System",
+                price: "₹9,500",
+                priceNum: 9500,
+                category: "Access Control",
+                brand: "bosch",
+                type: "access-control",
+                features: ["mobile-app"],
+                image: "https://images.unsplash.com/photo-1586092918161-2d8882ab35b6?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Biometric time and attendance management system",
+                icon: "fas fa-clock"
+            },
+
+            // Communication Systems
+            {
+                id: 13,
+                name: "EPABX Phone System",
+                price: "₹15,000",
+                priceNum: 15000,
+                category: "Communication",
+                brand: "samsung",
+                type: "communication",
+                features: [],
+                image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Professional business phone system with multiple lines",
+                icon: "fas fa-phone"
+            },
+            {
+                id: 14,
+                name: "PA Sound System",
+                price: "₹5,500",
+                priceNum: 5500,
+                category: "Communication",
+                brand: "honeywell",
+                type: "communication",
+                features: ["wireless"],
+                image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Public address system with wireless microphones",
+                icon: "fas fa-volume-up"
+            },
+            {
+                id: 15,
+                name: "Video Door Phone",
+                price: "₹7,200",
+                priceNum: 7200,
+                category: "Communication",
+                brand: "samsung",
+                type: "communication",
+                features: ["mobile-app"],
+                image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Video door phone with remote monitoring capability",
+                icon: "fas fa-video"
+            },
+
+            // Security Alarms
+            {
+                id: 16,
+                name: "Motion Sensor Alarm",
+                price: "₹1,800",
+                priceNum: 1800,
+                category: "Security Alarms",
+                brand: "bosch",
+                type: "alarms",
+                features: ["wireless", "mobile-app"],
+                image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "PIR motion detection alarm with mobile alerts",
+                icon: "fas fa-bell"
+            },
+            {
+                id: 17,
+                name: "Door/Window Sensor",
+                price: "₹1,200",
+                priceNum: 1200,
+                category: "Security Alarms",
+                brand: "honeywell",
+                type: "alarms",
+                features: ["wireless"],
+                image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Magnetic door and window security sensor",
+                icon: "fas fa-door-open"
+            },
+            {
+                id: 18,
+                name: "Burglar Alarm System",
+                price: "₹4,500",
+                priceNum: 4500,
+                category: "Security Alarms",
+                brand: "bosch",
+                type: "alarms",
+                features: ["wireless", "mobile-app"],
+                image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Complete burglar alarm system with siren and sensors",
+                icon: "fas fa-shield-alt"
+            }
+        ];
+
+        function renderProducts(productsToRender = products) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = productsToRender.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="product-icon">
+                            <i class="${product.icon}"></i>
+                        </div>
+                        <div class="product-category">${product.category}</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-price">${product.price}</div>
+                        <button class="product-btn">Get Quote</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterProducts() {
+            const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(cb => cb.value);
+            const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value);
+            const selectedFeatures = Array.from(document.querySelectorAll('input[name="features"]:checked')).map(cb => cb.value);
+            const minPrice = parseInt(document.getElementById('min-price').value) || 0;
+            const maxPrice = parseInt(document.getElementById('max-price').value) || Infinity;
+
+            const filtered = products.filter(product => {
+                const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(product.brand);
+                const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(product.type);
+                const priceMatch = product.priceNum >= minPrice && product.priceNum <= maxPrice;
+                const featureMatch = selectedFeatures.length === 0 || selectedFeatures.some(feature => product.features.includes(feature));
+                
+                return brandMatch && typeMatch && priceMatch && featureMatch;
+            });
+
+            renderProducts(filtered);
+        }
+
+        // Event listeners for filters
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', filterProducts);
+        });
+
+        document.getElementById('min-price').addEventListener('input', filterProducts);
+        document.getElementById('max-price').addEventListener('input', filterProducts);
+
+        // Sort functionality
+        document.getElementById('sort-products').addEventListener('change', function() {
+            let sortedProducts = [...products];
+            
+            switch(this.value) {
+                case 'price-low':
+                    sortedProducts.sort((a, b) => a.priceNum - b.priceNum);
+                    break;
+                case 'price-high':
+                    sortedProducts.sort((a, b) => b.priceNum - a.priceNum);
+                    break;
+                case 'name':
+                    sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+            }
+            
+            renderProducts(sortedProducts);
+        });
+
+        // Initial render
+        renderProducts();
+    </script>
+</body>
+</html>
