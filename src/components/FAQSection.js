@@ -40,7 +40,7 @@ const usps = [
     accent: "#10b981",
   },
   {
-    value: "13+",
+    value: "20+",
     label: "Years Experience",
     icon: faShieldAlt,
     accent: "#f59e0b",
@@ -85,7 +85,7 @@ function FAQSection() {
 
           {/* Right Side - Why Choose Us */}
           <div className="faq-right">
-            <h2>Why Choose Evis Networks?</h2>
+            <h2>Why Choose Evis Networx?</h2>
             <p className="usp-subtitle">
               Trusted security solutions with proven expertise and reliable service
             </p>

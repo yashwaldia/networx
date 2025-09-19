@@ -21,6 +21,8 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   text-decoration: none;
+  border: none; /* For button styling */
+  cursor: pointer; /* For button styling */
 }
 
 .contact-icon.phone {
@@ -40,7 +42,7 @@
   .sticky-contact {
     right: 1rem;
   }
-  
+
   .contact-icon {
     width: 48px;
     height: 48px;

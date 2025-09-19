@@ -9,7 +9,7 @@ function FooterSection() {
           <div className="footer-address">
             Sant Nagar, East of Kailash, Delhi<br/>
             <a href="mailto:info@evisnetworks.com">info@evisnetworks.com</a> | 
-            <a href="tel:+911234567890">+91 12345 67890</a>
+            <a href="tel:+919873300755">+919873300755</a>
           </div>
         </div>
         <div className="footer-links">
@@ -27,8 +27,8 @@ function FooterSection() {
         </div>
       </div>
       <div className="footer-copy">
-        © {new Date().getFullYear()} Evis Networks. All Rights Reserved.<br/>
-        Design & Development by Evis Networks.
+        © {new Date().getFullYear()} Evis Networx. All Rights Reserved.<br/>
+        Design & Development by Evis Networx.
       </div>
     </footer>
   );

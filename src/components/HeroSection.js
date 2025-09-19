@@ -1,36 +1,44 @@
 import React, { useState, useEffect } from "react";
 import "./HeroSection.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 const heroSlides = [
   {
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&h=400&q=80",
-    title: "Security. Supercharged.",
-    subtitle: "Just add Evis.",
-    description: "Intelligent, adaptable security cameras and sensors. Devices that enhance any system and perform in any environment.",
-    buttonText: "Discover Solutions"
+    image: "cctv.png",
+    title: "Your Security.",
+    subtitle: "Our Priority.",
+    description: "Protecting what matters most with advanced CCTV cameras, fire alarms, and access control systems. Professional installation and 24/7 monitoring for complete peace of mind.",
+    buttonText: "Learn More",
+    buttonLink: "https://www.pelco.com/blog/cctv-monitoring-guide",
+    serviceType: "CCTV Camera System"
   },
   {
-    image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=600&h=400&q=80",
+    image: "fire.png",
     title: "Fire Safety Systems",
-    subtitle: "Early Detection Technology",
-    description: "Built on an open platform, our fire detection devices plug into any system for scalable, future-proof safety.",
-    buttonText: "Learn More"
+    subtitle: "Early Detection. Rapid Response.",
+    description: "Comprehensive fire detection systems with intelligent smoke sensors and heat detectors. Protecting lives and property with advanced fire safety solutions that respond instantly to threats.",
+    buttonText: "Discover More",
+    buttonLink: "https://hrsschicago.com/fire-alarm-systems/fire-safety-systems-early-warning-prevent-disasters/",
+    serviceType: "Fire Alarm System"
   },
   {
-    image: "https://images.unsplash.com/photo-1586092918161-2d8882ab35b6?auto=format&fit=crop&w=600&h=400&q=80",
-    title: "Access Control Solutions",
-    subtitle: "Smart & Secure",
-    description: "Designed with privacy in mind, our access control systems help you protect areas with intelligent monitoring.",
-    buttonText: "Explore Features"
+    image: "smart.png",
+    title: "Smart Access Control",
+    subtitle: "Secure. Simple. Smart.",
+    description: "Revolutionary biometric systems and digital locks that provide seamless access control. Manage who enters your premises with cutting-edge fingerprint and card-based technology.",
+    buttonText: "Read Guide",
+    buttonLink: "https://www.getveris.com/blog/biometric-access-control-systems",
+    serviceType: "Biometric System"
   },
   {
-    image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=600&h=400&q=80",
+    image: "total.png",
     title: "Complete Protection",
-    subtitle: "Advanced Monitoring",
-    description: "See further in any condition with high-performance cameras offering precise views and comprehensive security coverage.",
-    buttonText: "Get Started"
+    subtitle: "One Solution. Total Security.",
+    description: "From advanced CCTV surveillance to fire alarms and communication systems. Your trusted security partner delivering comprehensive protection solutions across Delhi and NCR.",
+    buttonText: "Explore Solutions",
+    buttonLink: "https://www.movantech.com/blog/cctv-implementation-guide-2025-complete-enterprise-surveillance-system-setup",
+    serviceType: "Complete Security Package"
   }
 ];
 
@@ -57,23 +65,32 @@ function HeroSection() {
     changeSlide(newIndex);
   };
 
+  const handleLearnMore = () => {
+    // Open the blog link in a new tab
+    window.open(heroSlides[currentSlide].buttonLink, '_blank');
+  };
+
   useEffect(() => {
     const interval = setInterval(nextSlide, 7000);
     return () => clearInterval(interval);
   }, [currentSlide]);
 
   return (
-    <section className="hero-section" id="hero">
+    <section className="hero-section">
       <div className="hero-container">
         <div className={`hero-content ${isAnimating ? 'slide-out' : 'slide-in'}`}>
           <h1>
             <span className="hero-title-main">{heroSlides[currentSlide].title}</span>
-            <br />
             <span className="hero-title-accent">{heroSlides[currentSlide].subtitle}</span>
           </h1>
           <p>{heroSlides[currentSlide].description}</p>
-          <button className="hero-btn">{heroSlides[currentSlide].buttonText}</button>
           
+          {/* Updated button with external link functionality */}
+          <button className="hero-btn hero-learn-btn" onClick={handleLearnMore}>
+            {heroSlides[currentSlide].buttonText}
+            <FontAwesomeIcon icon={faExternalLinkAlt} className="hero-btn-icon" />
+          </button>
+
           <div className="hero-navigation">
             <button className="hero-nav-btn" onClick={prevSlide}>
               <FontAwesomeIcon icon={faChevronLeft} />
@@ -81,23 +98,26 @@ function HeroSection() {
             
             <div className="hero-indicators">
               {heroSlides.map((_, index) => (
-                <button
+                <div
                   key={index}
                   className={`indicator ${index === currentSlide ? 'active' : ''}`}
                   onClick={() => changeSlide(index)}
                 />
               ))}
             </div>
-            
+
             <button className="hero-nav-btn" onClick={nextSlide}>
               <FontAwesomeIcon icon={faChevronRight} />
             </button>
           </div>
         </div>
-        
+
         <div className={`hero-image-container ${isAnimating ? 'slide-out' : 'slide-in'}`}>
           <div className="hero-image-3d">
-            <img src={heroSlides[currentSlide].image} alt="Security Solution" />
+            <img 
+              src={heroSlides[currentSlide].image} 
+              alt={`${heroSlides[currentSlide].serviceType} - Professional Security Solutions Delhi NCR`}
+            />
             <div className="image-shadow"></div>
           </div>
         </div>

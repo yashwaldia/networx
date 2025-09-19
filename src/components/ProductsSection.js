@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProductsSection.css";
+import QuoteModal from "./QuoteModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCamera,
@@ -64,58 +65,77 @@ const products = [
 ];
 
 function ProductsSection() {
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+
   const handleViewAllProducts = () => {
     window.open('/products.html', '_blank');
   };
 
+  const handleGetQuote = (productTitle) => {
+    setSelectedService(productTitle);
+    setIsQuoteModalOpen(true);
+  };
+
   return (
-    <section className="products-section" id="products">
-      <div className="container">
-        <h2>Our Products & Services</h2>
-        <p className="products-subtitle">
-          Comprehensive security solutions for homes and businesses
-        </p>
-        
-        <div className="products-grid">
-          {products.map((product) => (
-            <div key={product.id} className={`product-card ${product.popular ? 'popular' : ''}`}>
-              {product.popular && <div className="popular-badge">Most Popular</div>}
-              
-              <div className="product-image">
-                <img src={product.image} alt={product.title} loading="lazy" />
-                <div className="product-icon-overlay">
-                  <FontAwesomeIcon icon={product.icon} />
+    <>
+      <section className="products-section">
+        <div className="container">
+          <h2>Our Products & Services</h2>
+          <p className="products-subtitle">Comprehensive security solutions for homes and businesses</p>
+
+          <div className="products-grid">
+            {products.map((product) => (
+              <div key={product.id} className={`product-card ${product.popular ? 'popular' : ''}`}>
+                {product.popular && <div className="popular-badge">Most Popular</div>}
+                
+                <div className="product-image">
+                  <img src={product.image} alt={product.title} />
+                  <div className="product-icon-overlay">
+                    <FontAwesomeIcon icon={product.icon} />
+                  </div>
+                </div>
+
+                <div className="product-content">
+                  <h3>{product.title}</h3>
+                  <p>{product.description}</p>
+                  
+                  <ul className="product-features">
+                    {product.features.map((feature, index) => (
+                      <li key={index}>{feature}</li>
+                    ))}
+                  </ul>
+
+                  <button 
+                    className="product-btn"
+                    onClick={() => handleGetQuote(product.title)}
+                  >
+                    Get Quote
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </button>
                 </div>
               </div>
-              
-              <div className="product-content">
-                <h3>{product.title}</h3>
-                <p>{product.description}</p>
-                
-                <ul className="product-features">
-                  {product.features.map((feature, index) => (
-                    <li key={index}>{feature}</li>
-                  ))}
-                </ul>
-                
-                <button className="product-btn">
-                  Get Quote
-                  <FontAwesomeIcon icon={faArrowRight} />
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <div className="view-more-section">
+            <button className="view-more-btn" onClick={handleViewAllProducts}>
+              View All Products
+              <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+            <p>Explore our complete range of security solutions</p>
+          </div>
         </div>
-        
-        <div className="view-more-section">
-          <button className="view-more-btn" onClick={handleViewAllProducts}>
-            View All Products
-            <FontAwesomeIcon icon={faArrowRight} />
-          </button>
-          <p>Explore our complete range of security solutions</p>
-        </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Quote Modal */}
+      <QuoteModal 
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        selectedService={selectedService}
+        isProductPage={false}
+      />
+    </>
   );
 }
 

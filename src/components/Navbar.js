@@ -19,18 +19,23 @@ function Navbar() {
     setIsProductsDropdownOpen(!isProductsDropdownOpen);
   };
 
+  const handleViewAllProducts = () => {
+    // Open products page in new tab
+    window.open('/products.html', '_blank');
+    setIsProductsDropdownOpen(false);
+  };
+
   const products = [
     { name: "CCTV Camera", href: "/products#cctv" },
     { name: "Fire Alarm System", href: "/products#fire-alarm" },
     { name: "Biometric System", href: "/products#biometric" },
-    { name: "Digital Door Lock", href: "/products#door-lock" },
-    { name: "View All Products", href: "/products", isViewAll: true }
+    { name: "Digital Door Lock", href: "/products#door-lock" }
   ];
 
   return (
     <nav className="navbar">
       <div className="navbar-main">
-        <img src="logoo.png" alt="Evis Security Networks" className="navbar-logo" />
+        <img src="logo.png" alt="Evis Security Networks" className="navbar-logo" />
         
         {/* Desktop Navigation */}
         <div className="desktop-nav">
@@ -38,20 +43,36 @@ function Navbar() {
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li className="navbar-dropdown">
-              <a href="#products" onClick={toggleProductsDropdown}>
+              <a 
+                href="#products" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleProductsDropdown();
+                }}
+              >
                 Products
-                <FontAwesomeIcon icon={faChevronDown} className={`dropdown-arrow ${isProductsDropdownOpen ? 'open' : ''}`} />
+                <FontAwesomeIcon 
+                  icon={faChevronDown} 
+                  className={`dropdown-arrow ${isProductsDropdownOpen ? 'open' : ''}`} 
+                />
               </a>
               <div className={`dropdown-menu ${isProductsDropdownOpen ? 'show' : ''}`}>
                 {products.map((product, index) => (
                   <a 
                     key={index} 
-                    href={product.href} 
-                    className={`dropdown-item ${product.isViewAll ? 'view-all' : ''}`}
+                    href={product.href}
+                    className="dropdown-item"
+                    onClick={() => setIsProductsDropdownOpen(false)}
                   >
                     {product.name}
                   </a>
                 ))}
+                <button 
+                  className="dropdown-item view-all"
+                  onClick={handleViewAllProducts}
+                >
+                  View All Products
+                </button>
               </div>
             </li>
             <li><a href="#faq">FAQ</a></li>
@@ -76,7 +97,17 @@ function Navbar() {
           <ul className="mobile-nav-links">
             <li><a href="#home" onClick={closeMobileMenu}>Home</a></li>
             <li><a href="#about" onClick={closeMobileMenu}>About</a></li>
-            <li><a href="#products" onClick={closeMobileMenu}>Products</a></li>
+            <li>
+              <button 
+                className="mobile-nav-products"
+                onClick={() => {
+                  handleViewAllProducts();
+                  closeMobileMenu();
+                }}
+              >
+                Products
+              </button>
+            </li>
             <li><a href="#faq" onClick={closeMobileMenu}>FAQ</a></li>
             <li><a href="#testimonials" onClick={closeMobileMenu}>Testimonials</a></li>
             <li><a href="#contact" onClick={closeMobileMenu}>Contact</a></li>

@@ -171,7 +171,7 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Exactly 3 per row */
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
 
@@ -181,7 +181,7 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            height: 420px; /* Fixed height for consistency */
+            height: 440px;
             display: flex;
             flex-direction: column;
         }
@@ -192,7 +192,7 @@
         }
 
         .product-image {
-            height: 200px; /* Square-ish image */
+            height: 200px;
             overflow: hidden;
             position: relative;
             flex-shrink: 0;
@@ -277,10 +277,252 @@
             transform: translateY(-1px);
         }
 
+        /* QUOTE MODAL STYLES */
+        .quote-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .quote-modal-overlay.show {
+            display: flex;
+        }
+
+        .quote-modal {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            max-width: 700px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        .quote-modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px 20px 0 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-modal-header h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .quote-modal-header p {
+            margin: 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .quote-form {
+            padding: 2rem;
+        }
+
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .form-section h3 {
+            color: #111827;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-section-subtitle {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .form-subtitle {
+            color: #667eea;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .form-subtitle strong {
+            color: #374151;
+            font-weight: 700;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group label i {
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background: #d1fae5;
+            color: #059669;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .privacy-note {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .products-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 per row on tablet */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -296,7 +538,36 @@
             }
             
             .products-grid {
-                grid-template-columns: 1fr; /* 1 per row on mobile */
+                grid-template-columns: 1fr;
+            }
+
+            .quote-modal {
+                width: 98%;
+                margin: 1rem;
+            }
+            
+            .quote-modal-header {
+                padding: 1.5rem;
+            }
+            
+            .quote-modal-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .quote-form {
+                padding: 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .submit-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
         }
     </style>
@@ -312,6 +583,90 @@
             </a>
         </div>
     </nav>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="quote-modal-overlay">
+        <div class="quote-modal">
+            <div class="quote-modal-header">
+                <h2>Request a Quote</h2>
+                <p>Get a quote for your selected product</p>
+                <button class="close-btn" onclick="closeQuoteModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form class="quote-form" onsubmit="submitQuoteForm(event)">
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h3><i class="fas fa-user"></i> Contact Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name *</label>
+                            <input type="text" name="fullName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email Address *</label>
+                            <input type="email" name="email" required placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone Number *</label>
+                            <input type="tel" name="phone" required placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-building"></i> Company/Organization</label>
+                            <input type="text" name="company" placeholder="Enter company name (optional)">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Details -->
+                <div class="form-section">
+                    <h3><i class="fas fa-clipboard-list"></i> Project Details</h3>
+                    <p class="form-section-subtitle">You're interested in this specific product</p>
+                    <div class="form-subtitle">
+                        <strong>Selected Product:</strong> <span id="selectedProductName">Product Name</span>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-home"></i> Property Size/Area</label>
+                            <input type="text" name="propertySize" placeholder="e.g., 2000 sq ft, 5 BHK, 10 rooms">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-comments"></i> Additional Requirements</label>
+                            <textarea name="requirements" rows="2" placeholder="Any specific requirements for this product..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Preferences -->
+                <div class="form-section">
+                    <h3><i class="fas fa-clock"></i> Contact Preferences</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> Preferred Contact Time</label>
+                            <select name="contactTime">
+                                <option value="">Select preferred time</option>
+                                <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
+                                <option value="Afternoon (12 PM - 4 PM)">Afternoon (12 PM - 4 PM)</option>
+                                <option value="Evening (4 PM - 8 PM)">Evening (4 PM - 8 PM)</option>
+                                <option value="Anytime">Anytime</option>
+                            </select>
+                        </div>
+                        <div class="form-group"></div>
+                    </div>
+                </div>
+                
+                <!-- Submit -->
+                <div class="form-submit">
+                    <div id="formMessages"></div>
+                    <button type="submit" class="submit-btn" id="submitBtn">Request Quote</button>
+                    <p class="privacy-note">🔒 Your information is secure and will only be used to provide you with a personalized quote.</p>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <div class="products-page">
@@ -343,6 +698,14 @@
                     <div class="filter-option">
                         <input type="checkbox" id="samsung" name="brand" value="samsung">
                         <label for="samsung">Samsung</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="yale" name="brand" value="yale">
+                        <label for="yale">Yale</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="ezviz" name="brand" value="ezviz">
+                        <label for="ezviz">EZVIZ</label>
                     </div>
                 </div>
             </div>
@@ -379,6 +742,10 @@
                         <input type="checkbox" id="alarms" name="type" value="alarms">
                         <label for="alarms">Security Alarms</label>
                     </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="recording" name="type" value="recording">
+                        <label for="recording">Recording Systems</label>
+                    </div>
                 </div>
             </div>
 
@@ -400,6 +767,36 @@
                     <div class="filter-option">
                         <input type="checkbox" id="hd-quality" name="features" value="hd-quality">
                         <label for="hd-quality">HD Quality</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="ptz" name="features" value="ptz">
+                        <label for="ptz">PTZ Control</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="waterproof" name="features" value="waterproof">
+                        <label for="waterproof">Waterproof</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Resolution</h3>
+                <div class="filter-group">
+                    <div class="filter-option">
+                        <input type="checkbox" id="1mp" name="resolution" value="1mp">
+                        <label for="1mp">1MP</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="2mp" name="resolution" value="2mp">
+                        <label for="2mp">2MP (Full HD)</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="4mp" name="resolution" value="4mp">
+                        <label for="4mp">4MP</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="8mp" name="resolution" value="8mp">
+                        <label for="8mp">8MP (4K)</label>
                     </div>
                 </div>
             </div>
@@ -424,133 +821,211 @@
     </div>
 
     <script>
-        // Comprehensive products data based on Evis Security Networx offerings
+        // Comprehensive products data based on Evis Security Networks and research
         const products = [
-            // CCTV & Surveillance
+            // CCTV & Surveillance - CP Plus Products
             {
                 id: 1,
-                name: "HD 4MP CCTV Camera",
-                price: "₹2,500",
-                priceNum: 2500,
+                name: "CP Plus 4MP HD CCTV Camera",
+                price: "₹2,850",
+                priceNum: 2850,
                 category: "Surveillance",
-                brand: "hikvision",
+                brand: "cpplus",
                 type: "surveillance",
-                features: ["night-vision", "hd-quality"],
+                features: ["night-vision", "hd-quality", "waterproof"],
+                resolution: "4mp",
                 image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Advanced HD surveillance camera with night vision and motion detection",
+                description: "CP Plus 4MP HD outdoor bullet camera with 30m night vision and weather protection",
                 icon: "fas fa-camera"
             },
             {
                 id: 2,
-                name: "Colour Indoor Camera",
-                price: "₹1,800",
-                priceNum: 1800,
+                name: "CP Plus 2.4MP Dome Camera",
+                price: "₹1,850",
+                priceNum: 1850,
                 category: "Surveillance",
                 brand: "cpplus",
                 type: "surveillance",
-                features: ["hd-quality"],
+                features: ["hd-quality", "night-vision"],
+                resolution: "2mp",
                 image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "High-quality indoor color camera for home security",
+                description: "Indoor dome camera with 2.4MP resolution and smart IR technology",
                 icon: "fas fa-video"
             },
             {
                 id: 3,
-                name: "Colour Outdoor Bullet Camera",
-                price: "₹3,200",
-                priceNum: 3200,
-                category: "Surveillance",
-                brand: "hikvision",
-                type: "surveillance",
-                features: ["night-vision", "hd-quality"],
-                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Weather-resistant outdoor bullet camera with night vision",
-                icon: "fas fa-camera"
-            },
-            {
-                id: 4,
-                name: "High Speed Dome Camera",
-                price: "₹8,500",
-                priceNum: 8500,
-                category: "Surveillance",
-                brand: "dahua",
-                type: "surveillance",
-                features: ["hd-quality", "mobile-app"],
-                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "PTZ dome camera with high-speed rotation and zoom",
-                icon: "fas fa-video"
-            },
-            {
-                id: 5,
-                name: "Wireless CCTV Camera",
+                name: "CP Plus Wireless WiFi Camera",
                 price: "₹4,200",
                 priceNum: 4200,
                 category: "Surveillance",
                 brand: "cpplus",
                 type: "surveillance",
                 features: ["wireless", "mobile-app", "hd-quality"],
+                resolution: "2mp",
                 image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Battery powered wireless security camera with mobile app",
+                description: "Wireless WiFi camera with mobile app control and cloud storage",
                 icon: "fas fa-wifi"
             },
+
+            // Hikvision Products
             {
-                id: 6,
-                name: "Digital Video Recorder",
-                price: "₹6,500",
-                priceNum: 6500,
+                id: 4,
+                name: "Hikvision 8MP 4K Camera",
+                price: "₹8,500",
+                priceNum: 8500,
                 category: "Surveillance",
                 brand: "hikvision",
                 type: "surveillance",
-                features: ["hd-quality"],
+                features: ["hd-quality", "night-vision", "waterproof"],
+                resolution: "8mp",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Ultra HD 4K bullet camera with advanced analytics and 40m IR range",
+                icon: "fas fa-camera"
+            },
+            {
+                id: 5,
+                name: "Hikvision PTZ Dome Camera",
+                price: "₹25,000",
+                priceNum: 25000,
+                category: "Surveillance",
+                brand: "hikvision",
+                type: "surveillance",
+                features: ["ptz", "hd-quality", "mobile-app"],
+                resolution: "2mp",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "High-speed PTZ dome with 20x optical zoom and auto-tracking",
+                icon: "fas fa-video"
+            },
+
+            // Dahua Products
+            {
+                id: 6,
+                name: "Dahua 4MP IP Camera",
+                price: "₹3,200",
+                priceNum: 3200,
+                category: "Surveillance",
+                brand: "dahua",
+                type: "surveillance",
+                features: ["hd-quality", "night-vision", "mobile-app"],
+                resolution: "4mp",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Professional IP camera with smart detection and analytics",
+                icon: "fas fa-camera"
+            },
+            {
+                id: 7,
+                name: "Dahua Wireless Security Camera",
+                price: "₹5,500",
+                priceNum: 5500,
+                category: "Surveillance",
+                brand: "dahua",
+                type: "surveillance",
+                features: ["wireless", "mobile-app", "hd-quality"],
+                resolution: "2mp",
+                image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Battery-powered wireless camera with AI human detection",
+                icon: "fas fa-wifi"
+            },
+
+            // Recording Systems - DVR/NVR
+            {
+                id: 8,
+                name: "CP Plus 8-Channel DVR",
+                price: "₹6,500",
+                priceNum: 6500,
+                category: "Recording",
+                brand: "cpplus",
+                type: "recording",
+                features: ["mobile-app", "hd-quality"],
                 image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Standalone digital video recorder for CCTV systems",
+                description: "8-channel HD DVR with remote viewing and mobile app support",
                 icon: "fas fa-hdd"
+            },
+            {
+                id: 9,
+                name: "Hikvision 16-Channel NVR",
+                price: "₹15,000",
+                priceNum: 15000,
+                category: "Recording",
+                brand: "hikvision",
+                type: "recording",
+                features: ["mobile-app", "hd-quality"],
+                image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "16-channel 4K NVR with AI analytics and cloud connectivity",
+                icon: "fas fa-server"
+            },
+            {
+                id: 10,
+                name: "Dahua 4-Channel XVR",
+                price: "₹4,200",
+                priceNum: 4200,
+                category: "Recording",
+                brand: "dahua",
+                type: "recording",
+                features: ["mobile-app"],
+                image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Hybrid XVR supporting analog, HD-CVI, and IP cameras",
+                icon: "fas fa-database"
             },
 
             // Fire Safety Systems
             {
-                id: 7,
-                name: "Smoke Detection System",
-                price: "₹3,200",
-                priceNum: 3200,
+                id: 11,
+                name: "Honeywell Smoke Detector",
+                price: "₹2,200",
+                priceNum: 2200,
                 category: "Fire Safety",
                 brand: "honeywell",
                 type: "fire-safety",
                 features: ["wireless"],
                 image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Advanced smoke detection with wireless connectivity",
+                description: "Wireless smoke detector with early warning system",
                 icon: "fas fa-fire-extinguisher"
             },
             {
-                id: 8,
-                name: "Fire Alarm Control Panel",
-                price: "₹5,000",
-                priceNum: 5000,
+                id: 12,
+                name: "Bosch Fire Alarm Panel",
+                price: "₹8,500",
+                priceNum: 8500,
                 category: "Fire Safety",
                 brand: "bosch",
                 type: "fire-safety",
-                features: [],
+                features: ["mobile-app"],
                 image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Central fire alarm control panel for building safety",
+                description: "Intelligent fire alarm control panel with network connectivity",
                 icon: "fas fa-fire"
             },
             {
-                id: 9,
-                name: "Heat Sensor Detector",
-                price: "₹1,500",
-                priceNum: 1500,
+                id: 13,
+                name: "Honeywell Heat Detector",
+                price: "₹1,800",
+                priceNum: 1800,
                 category: "Fire Safety",
                 brand: "honeywell",
                 type: "fire-safety",
                 features: ["wireless"],
                 image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Temperature-based fire detection sensor",
+                description: "Fixed temperature heat detector for fire detection",
                 icon: "fas fa-thermometer-half"
             },
 
             // Access Control & Biometric
             {
-                id: 10,
-                name: "Fingerprint Scanner",
+                id: 14,
+                name: "Hikvision Face Recognition Terminal",
+                price: "₹12,500",
+                priceNum: 12500,
+                category: "Access Control",
+                brand: "hikvision",
+                type: "access-control",
+                features: ["mobile-app"],
+                image: "https://images.unsplash.com/photo-1586092918161-2d8882ab35b6?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "AI-powered face recognition access control terminal",
+                icon: "fas fa-user-check"
+            },
+            {
+                id: 15,
+                name: "Samsung Fingerprint Scanner",
                 price: "₹8,500",
                 priceNum: 8500,
                 category: "Access Control",
@@ -558,119 +1033,252 @@
                 type: "access-control",
                 features: ["mobile-app"],
                 image: "https://images.unsplash.com/photo-1586092918161-2d8882ab35b6?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Biometric fingerprint access control system",
+                description: "Biometric fingerprint access control with time attendance",
                 icon: "fas fa-fingerprint"
             },
             {
-                id: 11,
-                name: "Digital Door Lock",
-                price: "₹12,000",
-                priceNum: 12000,
+                id: 16,
+                name: "Yale Smart Digital Door Lock",
+                price: "₹18,000",
+                priceNum: 18000,
                 category: "Access Control",
-                brand: "samsung",
+                brand: "yale",
                 type: "access-control",
                 features: ["mobile-app", "wireless"],
                 image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Smart digital door lock with keypad and app control",
+                description: "Smart digital door lock with fingerprint, PIN, and RFID access",
                 icon: "fas fa-lock"
             },
             {
-                id: 12,
-                name: "Time Attendance System",
-                price: "₹9,500",
-                priceNum: 9500,
+                id: 17,
+                name: "Bosch Time Attendance System",
+                price: "₹9,800",
+                priceNum: 9800,
                 category: "Access Control",
                 brand: "bosch",
                 type: "access-control",
                 features: ["mobile-app"],
                 image: "https://images.unsplash.com/photo-1586092918161-2d8882ab35b6?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Biometric time and attendance management system",
+                description: "Advanced biometric time attendance system with reports",
                 icon: "fas fa-clock"
             },
 
             // Communication Systems
             {
-                id: 13,
-                name: "EPABX Phone System",
-                price: "₹15,000",
-                priceNum: 15000,
+                id: 18,
+                name: "Samsung EPABX System 32-Line",
+                price: "₹25,000",
+                priceNum: 25000,
                 category: "Communication",
                 brand: "samsung",
                 type: "communication",
                 features: [],
                 image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Professional business phone system with multiple lines",
+                description: "32-line EPABX system with call recording and auto-attendant",
                 icon: "fas fa-phone"
             },
             {
-                id: 14,
-                name: "PA Sound System",
-                price: "₹5,500",
-                priceNum: 5500,
+                id: 19,
+                name: "Honeywell PA Sound System",
+                price: "₹12,000",
+                priceNum: 12000,
                 category: "Communication",
                 brand: "honeywell",
                 type: "communication",
                 features: ["wireless"],
                 image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Public address system with wireless microphones",
+                description: "Public address system with wireless microphones and zone control",
                 icon: "fas fa-volume-up"
             },
             {
-                id: 15,
-                name: "Video Door Phone",
-                price: "₹7,200",
-                priceNum: 7200,
+                id: 20,
+                name: "Samsung Video Door Phone",
+                price: "₹8,200",
+                priceNum: 8200,
                 category: "Communication",
                 brand: "samsung",
                 type: "communication",
                 features: ["mobile-app"],
                 image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Video door phone with remote monitoring capability",
+                description: "HD video door phone with remote monitoring and two-way talk",
                 icon: "fas fa-video"
             },
 
             // Security Alarms
             {
-                id: 16,
-                name: "Motion Sensor Alarm",
-                price: "₹1,800",
-                priceNum: 1800,
+                id: 21,
+                name: "Bosch Motion Sensor Alarm",
+                price: "₹2,200",
+                priceNum: 2200,
                 category: "Security Alarms",
                 brand: "bosch",
                 type: "alarms",
                 features: ["wireless", "mobile-app"],
                 image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "PIR motion detection alarm with mobile alerts",
+                description: "PIR motion detector with wireless connectivity and mobile alerts",
                 icon: "fas fa-bell"
             },
             {
-                id: 17,
-                name: "Door/Window Sensor",
-                price: "₹1,200",
-                priceNum: 1200,
+                id: 22,
+                name: "Honeywell Door/Window Sensor",
+                price: "₹1,500",
+                priceNum: 1500,
                 category: "Security Alarms",
                 brand: "honeywell",
                 type: "alarms",
                 features: ["wireless"],
                 image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Magnetic door and window security sensor",
+                description: "Wireless magnetic contact sensor for doors and windows",
                 icon: "fas fa-door-open"
             },
             {
-                id: 18,
-                name: "Burglar Alarm System",
-                price: "₹4,500",
-                priceNum: 4500,
+                id: 23,
+                name: "Bosch Burglar Alarm Kit",
+                price: "₹6,500",
+                priceNum: 6500,
                 category: "Security Alarms",
                 brand: "bosch",
                 type: "alarms",
                 features: ["wireless", "mobile-app"],
                 image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
-                description: "Complete burglar alarm system with siren and sensors",
+                description: "Complete burglar alarm system with sensors, siren, and control panel",
                 icon: "fas fa-shield-alt"
+            },
+
+            // EZVIZ Products
+            {
+                id: 24,
+                name: "EZVIZ C6N WiFi Security Camera",
+                price: "₹3,800",
+                priceNum: 3800,
+                category: "Surveillance",
+                brand: "ezviz",
+                type: "surveillance",
+                features: ["wireless", "mobile-app", "ptz"],
+                resolution: "2mp",
+                image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Pan-tilt WiFi camera with smart motion tracking and mobile app",
+                icon: "fas fa-wifi"
+            },
+            {
+                id: 25,
+                name: "EZVIZ Outdoor Battery Camera",
+                price: "₹7,200",
+                priceNum: 7200,
+                category: "Surveillance",
+                brand: "ezviz",
+                type: "surveillance",
+                features: ["wireless", "mobile-app", "waterproof"],
+                resolution: "2mp",
+                image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Wire-free battery camera with PIR detection and solar panel option",
+                icon: "fas fa-camera"
+            },
+
+            // Additional Professional Products
+            {
+                id: 26,
+                name: "Professional 64-Channel NVR",
+                price: "₹45,000",
+                priceNum: 45000,
+                category: "Recording",
+                brand: "hikvision",
+                type: "recording",
+                features: ["mobile-app", "hd-quality"],
+                image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Enterprise-grade 64-channel NVR for large-scale installations",
+                icon: "fas fa-server"
+            },
+            {
+                id: 27,
+                name: "Industrial Fire Suppression System",
+                price: "₹35,000",
+                priceNum: 35000,
+                category: "Fire Safety",
+                brand: "honeywell",
+                type: "fire-safety",
+                features: ["mobile-app"],
+                image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Automatic fire suppression system for server rooms and control panels",
+                icon: "fas fa-fire-extinguisher"
+            },
+            {
+                id: 28,
+                name: "Multi-Reader Access Control Panel",
+                price: "₹15,500",
+                priceNum: 15500,
+                category: "Access Control",
+                brand: "bosch",
+                type: "access-control",
+                features: ["mobile-app"],
+                image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=400&h=400&q=80",
+                description: "Advanced access control panel supporting multiple authentication methods",
+                icon: "fas fa-id-card"
             }
         ];
 
+        // QUOTE MODAL FUNCTIONS
+        function openQuoteModal(productName) {
+            document.getElementById('selectedProductName').textContent = productName;
+            document.getElementById('quoteModal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+            
+            // Reset form
+            document.querySelector('.quote-form').reset();
+            document.getElementById('formMessages').innerHTML = '';
+        }
+
+        function submitQuoteForm(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessages = document.getElementById('formMessages');
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Add selected product to data
+            data.selectedProduct = document.getElementById('selectedProductName').textContent;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessages.innerHTML = '';
+            
+            // Simulate form submission (replace with actual email sending logic)
+            setTimeout(() => {
+                // Show success message
+                formMessages.innerHTML = '<div class="success-message">✅ Quote request sent successfully! We will contact you soon.</div>';
+                
+                // Log data (in real implementation, send to server/email service)
+                console.log('Quote request data:', data);
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Quote';
+                
+                // Close modal after 2 seconds
+                setTimeout(() => {
+                    closeQuoteModal();
+                }, 2000);
+                
+            }, 1500);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('quoteModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeQuoteModal();
+            }
+        });
+
+        // PRODUCT RENDERING AND FILTERING
         function renderProducts(productsToRender = products) {
             const grid = document.getElementById('products-grid');
             grid.innerHTML = productsToRender.map(product => `
@@ -686,7 +1294,7 @@
                         <h3>${product.name}</h3>
                         <p>${product.description}</p>
                         <div class="product-price">${product.price}</div>
-                        <button class="product-btn">Get Quote</button>
+                        <button class="product-btn" onclick="openQuoteModal('${product.name}')">Get Quote</button>
                     </div>
                 </div>
             `).join('');
@@ -696,6 +1304,7 @@
             const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(cb => cb.value);
             const selectedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value);
             const selectedFeatures = Array.from(document.querySelectorAll('input[name="features"]:checked')).map(cb => cb.value);
+            const selectedResolutions = Array.from(document.querySelectorAll('input[name="resolution"]:checked')).map(cb => cb.value);
             const minPrice = parseInt(document.getElementById('min-price').value) || 0;
             const maxPrice = parseInt(document.getElementById('max-price').value) || Infinity;
 
@@ -704,8 +1313,9 @@
                 const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(product.type);
                 const priceMatch = product.priceNum >= minPrice && product.priceNum <= maxPrice;
                 const featureMatch = selectedFeatures.length === 0 || selectedFeatures.some(feature => product.features.includes(feature));
+                const resolutionMatch = selectedResolutions.length === 0 || (product.resolution && selectedResolutions.includes(product.resolution));
                 
-                return brandMatch && typeMatch && priceMatch && featureMatch;
+                return brandMatch && typeMatch && priceMatch && featureMatch && resolutionMatch;
             });
 
             renderProducts(filtered);
@@ -732,6 +1342,10 @@
                     break;
                 case 'name':
                     sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+                case 'popular':
+                    // Shuffle array for "popular" sorting
+                    sortedProducts = sortedProducts.sort(() => Math.random() - 0.5);
                     break;
             }
             

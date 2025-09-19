@@ -49,6 +49,7 @@
 .hero-title-accent {
   color: #3b82f6;
   display: block;
+  font-size: 2.5rem;
 }
 
 .hero-content p {
@@ -151,8 +152,8 @@
 
 .hero-image-3d {
   position: relative;
-  width: 400px;
-  height: 300px;
+  width: 500px; /* Increased from 400px */
+  height: 375px; /* Increased from 300px (4:3 ratio) */
 }
 
 .hero-image-3d img {
@@ -160,7 +161,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 16px;
-  box-shadow: 
+  box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.25),
     0 0 0 1px rgba(255, 255, 255, 0.8);
   transition: transform 0.3s ease;
@@ -189,19 +190,105 @@
     gap: 3rem;
     padding: 2rem 1rem;
   }
-  
+
   .hero-content {
     max-width: none;
   }
-  .hero-navigation{
-    justify-content:center;
+
+  .hero-navigation {
+    justify-content: center;
   }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-image-3d {
+    width: 380px; /* Increased from 300px */
+    height: 285px; /* Increased from 225px (4:3 ratio) */
+  }
+}
+
+@media (max-width: 480px) {
   .hero-content h1 {
     font-size: 2rem;
   }
-  
+
   .hero-image-3d {
-    width: 300px;
-    height: 225px;
+    width: 320px;
+    height: 240px;
   }
+}
+/* Updated Hero Button Styles */
+.hero-learn-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+  margin-bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-learn-btn:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.4);
+}
+
+.hero-btn-icon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.hero-learn-btn:hover .hero-btn-icon {
+  transform: translateX(3px);
+}
+
+/* Alternative button colors for different slides */
+.hero-learn-btn.slide-0 {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.3);
+}
+
+.hero-learn-btn.slide-0:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 0 6px 20px 0 rgba(59, 130, 246, 0.4);
+}
+
+.hero-learn-btn.slide-1 {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 4px 14px 0 rgba(239, 68, 68, 0.3);
+}
+
+.hero-learn-btn.slide-1:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 6px 20px 0 rgba(239, 68, 68, 0.4);
+}
+
+.hero-learn-btn.slide-2 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.3);
+}
+
+.hero-learn-btn.slide-2:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+  box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.4);
+}
+
+.hero-learn-btn.slide-3 {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+}
+
+.hero-learn-btn.slide-3:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.4);
 }

@@ -1,0 +1,184 @@
+.client-logos-section {
+  background: #ffffff;
+  padding: 4rem 0;
+  width: 100vw;
+  overflow-x: hidden;
+  border-top: 1px solid #e5e7eb;
+}
+
+.client-logos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.client-logos-header {
+  margin-bottom: 3rem;
+}
+
+.client-logos-header h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.client-logos-header p {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Client Logos Grid */
+.client-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.client-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-logo-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+  background: #ffffff;
+}
+
+.client-logo-item img {
+  max-width: 100%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: all 0.3s ease;
+}
+
+.client-logo-item:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.05);
+}
+
+/* Client Footer */
+.client-logos-footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.client-count {
+  font-size: 1rem;
+  color: #6b7280;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .client-logos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .client-logos-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .client-logos-section {
+    padding: 3rem 0;
+  }
+  
+  .client-logos-container {
+    padding: 0 1.5rem;
+  }
+  
+  .client-logos-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .client-logos-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .client-logos-header p {
+    font-size: 1rem;
+  }
+  
+  .client-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .client-logo-item {
+    height: 100px;
+    padding: 1rem;
+  }
+  
+  .client-logo-item img {
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client-logos-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .client-logo-item {
+    height: 90px;
+  }
+  
+  .client-logos-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Optional: Animated scrolling version for many logos */
+.client-logos-scroll {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.client-logos-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: scroll-logos 30s linear infinite;
+}
+
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.client-logos-scroll:hover .client-logos-track {
+  animation-play-state: paused;
+}

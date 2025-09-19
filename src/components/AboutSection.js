@@ -14,23 +14,22 @@ import {
 
 function AboutSection() {
   return (
-    <section className="about-section" id="about">
-      <div className="container">
-        <div className="about-icon">
-          <FontAwesomeIcon icon={faShieldAlt} />
-        </div>
-        <h2>About Evis Security Networx</h2>
-        
-        <div className="about-content">
-          {/* Left Column - Company Description */}
-          <div className="about-left">
-            <p>
-              Evis Security Networx is a leading wholesaler and supplier of comprehensive security solutions in New Delhi. 
-              We specialize in CCTV cameras, fire alarm systems, biometric systems, digital door locks, EPABX systems, and PA systems. 
-              With over a decade of experience serving homes and businesses across Delhi, we provide cutting-edge security technology 
-              to protect what matters most to you.
-            </p>
-            
+<section className="about-section" id="about" aria-label="About Evis Security Networks">
+  <div className="container">
+    <header>
+      <h2>About Evis Security Networx</h2>
+      <p className="section-subtitle">Leading Security Solutions Provider in Delhi NCR Since 2010</p>
+    </header>
+    
+    <article className="about-content">
+      <div className="about-left">
+        <h3>Professional Security Systems Installation</h3>
+        <p>
+          <strong>Evis Security Networx</strong> is a leading wholesaler and supplier of 
+          comprehensive security solutions in <em>New Delhi NCR</em>. We specialize in 
+          <strong> CCTV cameras</strong>, <strong>fire alarm systems</strong>, 
+          <strong>biometric systems</strong>, and <strong>digital door locks</strong>.
+        </p>
             <div className="about-services">
               <div className="service-item">
                 <FontAwesomeIcon icon={faCheckCircle} className="about-small-icon" />
@@ -91,12 +90,12 @@ function AboutSection() {
                 <FontAwesomeIcon icon={faCalendarAlt} className="info-icon" />
                 <div className="info-content">
                   <strong>Established</strong>
-                  <span>Since 2013</span>
+                  <span>Since 2005</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );

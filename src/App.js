@@ -7,21 +7,21 @@ import ProductsSection from "./components/ProductsSection";
 import ServicesSection from "./components/ServicesSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import FAQSection from "./components/FAQSection";
-import QuoteBanner from "./components/QuoteBanner";
+import ClientLogos from "./components/ClientLogos"; // Import new component
 import FooterSection from "./components/FooterSection";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Navbar />
       <StickyContact />
       <HeroSection />
       <AboutSection />
       <ProductsSection />
+      <ClientLogos /> {/* Replace QuoteBanner with ClientLogos */}
       <ServicesSection />
       <TestimonialsSection />
       <FAQSection />
-      <QuoteBanner />
       <FooterSection />
     </div>
   );
