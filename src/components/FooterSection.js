@@ -167,7 +167,7 @@ function FooterSection() {
       {/* Traditional Footer Content */}
       <div className="footer-main">
         <div className="footer-brand">
-          <img src="logo512.png" alt="Evis Security Networx" />
+          <img src="logo1.png" alt="Evis Security Networx" />
           <div className="footer-address">
             <p>Professional Security Solutions<br />for Modern Businesses</p>
           </div>
