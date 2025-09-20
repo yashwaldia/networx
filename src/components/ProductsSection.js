@@ -19,7 +19,7 @@ const products = [
     title: "CCTV Camera",
     description: "Advanced HD surveillance cameras with night vision, motion detection, and remote monitoring capabilities.",
     features: ["HD 4MP Resolution", "Night Vision Technology", "Remote Mobile Access", "Motion Detection Alerts"],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=400&q=80",
+    image: "cctv.png",
     popular: true
   },
   {
@@ -28,7 +28,7 @@ const products = [
     title: "Fire Alarm System",
     description: "Comprehensive fire detection systems with smoke sensors, heat detectors for early warning protection.",
     features: ["Smoke Detection", "Heat Sensors", "Auto Emergency Alert", "24/7 Monitoring"],
-    image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=400&h=400&q=80"
+    image: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS9Yq9RtSvCTufEFIkacf0BC4FVd8pIQYxyc9LtBC64i4Hza4TvPkFgAYSuxCRieArMH67vgVVvz8N0ZbrdT0cQcYdnFZzJURC0sgCAIDLc"
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const products = [
     title: "Biometric System",
     description: "Advanced fingerprint and facial recognition systems for secure access control and attendance management.",
     features: ["Fingerprint Scanner", "Face Recognition", "Access Control", "Attendance Management"],
-    image: "https://images.unsplash.com/photo-1586092918161-2d8882ab35b6?auto=format&fit=crop&w=400&h=400&q=80"
+    image: "https://4.imimg.com/data4/KG/FL/MY-6886566/biometric-attendance-system-gprs-wifi-500x500.jpg"
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const products = [
     title: "Digital Door Lock",
     description: "Smart digital locks with keypad, RFID card access, and mobile app integration for keyless entry.",
     features: ["Keypad Access", "RFID Cards", "Mobile App Control", "Auto Lock Feature"],
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=400&h=400&q=80"
+    image: "https://yaleonline.in/cdn/shop/products/100Nxt.11000p_d71e89a0-549b-43ff-aa1c-2c382e82af1c.jpg?v=1740809044"
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const products = [
     title: "EPABX System",
     description: "Professional telephone systems for business communication with call management and recording features.",
     features: ["Multi-line Support", "Call Recording", "Intercom System", "Auto Attendant"],
-    image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&w=400&h=400&q=80"
+    image: "ebax.png"
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const products = [
     title: "PA System",
     description: "Public address systems for clear announcements, background music and zone-wise audio control.",
     features: ["Crystal Clear Audio", "Zone Control", "Wireless Microphones", "Background Music"],
-    image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=400&h=400&q=80"
+    image: "pa.png"
   }
 ];
 

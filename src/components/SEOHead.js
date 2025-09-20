@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEOHead = ({ 
-  title = "Evis Security Networks - CCTV, Fire Alarm & Security Systems in Delhi NCR",
+  title = "Evis Security Networx - CCTV, Fire Alarm & Security Systems in Delhi NCR",
   description = "Leading security solutions provider in Delhi NCR. Professional CCTV cameras, fire alarm systems, biometric access control, and digital door locks installation. 10+ years experience.",
   keywords = "CCTV camera Delhi, fire alarm system, biometric system, digital door lock, security systems Delhi NCR, EPABX system, PA system, access control",
   canonicalUrl = "",
@@ -14,13 +14,13 @@ const SEOHead = ({
 }) => {
   
   const currentUrl = typeof window !== 'undefined' ? window.location.href : canonicalUrl;
-  const siteName = "Evis Security Networks";
+  const siteName = "Evis Security Networx";
   
   // Default JSON-LD for local business
   const defaultJsonLd = {
     "@context": "https://schema.org",
     "@type": "SecuritySystem",
-    "name": "Evis Security Networks",
+    "name": "Evis Security Networx",
     "image": "https://yourwebsite.com/logo.png",
     "description": description,
     "address": {
@@ -32,7 +32,7 @@ const SEOHead = ({
       "addressCountry": "IN"
     },
     "telephone": "+91-9876543210",
-    "email": "info@evissecuritynetworks.com",
+    "email": "evisnetworx@yahoo.com",
     "url": "https://yourwebsite.com",
     "openingHours": [
       "Mo-Sa 09:00-18:00"
@@ -67,7 +67,7 @@ const SEOHead = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <meta name="author" content="Evis Security Networks" />
+      <meta name="author" content="Evis Security Networx" />
       <meta name="robots" content={noIndex ? "noindex,nofollow" : "index,follow"} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />

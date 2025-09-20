@@ -76,7 +76,7 @@ function HeroSection() {
   }, [currentSlide]);
 
   return (
-    <section className="hero-section">
+    <section id="hero" className="hero-section">
       <div className="hero-container">
         <div className={`hero-content ${isAnimating ? 'slide-out' : 'slide-in'}`}>
           <h1>

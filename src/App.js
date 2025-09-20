@@ -4,7 +4,6 @@ import StickyContact from "./components/StickyContact";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ProductsSection from "./components/ProductsSection";
-import ServicesSection from "./components/ServicesSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import FAQSection from "./components/FAQSection";
 import ClientLogos from "./components/ClientLogos"; // Import new component
@@ -19,7 +18,6 @@ function App() {
       <AboutSection />
       <ProductsSection />
       <ClientLogos /> {/* Replace QuoteBanner with ClientLogos */}
-      <ServicesSection />
       <TestimonialsSection />
       <FAQSection />
       <FooterSection />

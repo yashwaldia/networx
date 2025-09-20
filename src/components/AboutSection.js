@@ -5,31 +5,33 @@ import {
   faShieldAlt, 
   faCheckCircle, 
   faBuilding, 
-  faGavel, 
-  faUserTie, 
-  faMapMarkerAlt,
-  faCertificate,
+  faBriefcase, 
+  faFileAlt, 
   faCalendarAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 function AboutSection() {
   return (
-<section className="about-section" id="about" aria-label="About Evis Security Networks">
-  <div className="container">
-    <header>
-      <h2>About Evis Security Networx</h2>
-      <p className="section-subtitle">Leading Security Solutions Provider in Delhi NCR Since 2010</p>
-    </header>
-    
-    <article className="about-content">
-      <div className="about-left">
-        <h3>Professional Security Systems Installation</h3>
-        <p>
-          <strong>Evis Security Networx</strong> is a leading wholesaler and supplier of 
-          comprehensive security solutions in <em>New Delhi NCR</em>. We specialize in 
-          <strong> CCTV cameras</strong>, <strong>fire alarm systems</strong>, 
-          <strong>biometric systems</strong>, and <strong>digital door locks</strong>.
-        </p>
+    <section id="about" className="about-section">
+      <div className="container">
+        <div className="about-icon">
+          <FontAwesomeIcon icon={faShieldAlt} />
+        </div>
+        <h2>About Evis Security Networx</h2>
+        
+        <div className="about-content">
+          {/* Left Column - EXACTLY AS YOUR ORIGINAL CODE */}
+          <div className="about-left">
+            <h3>Professional Security Systems Installation</h3>
+            
+            <p>
+              <strong>Evis Security Networx</strong> is a leading wholesaler and supplier of 
+              comprehensive security solutions in <em>New Delhi NCR</em>.
+              We specialize in cutting-edge security technologies including <strong>CCTV surveillance systems</strong>, 
+              <strong>fire alarm systems</strong>, <strong>biometric access control</strong>, and 
+              <strong> smart digital door locks</strong>. Our commitment to quality and customer satisfaction 
+              has made us the preferred choice for security solutions.
+            </p>
             <div className="about-services">
               <div className="service-item">
                 <FontAwesomeIcon icon={faCheckCircle} className="about-small-icon" />
@@ -37,7 +39,7 @@ function AboutSection() {
               </div>
               <div className="service-item">
                 <FontAwesomeIcon icon={faCheckCircle} className="about-small-icon" />
-                <span>Professional Installation & Support</span>
+                <span>Professional Installation and Support</span>
               </div>
               <div className="service-item">
                 <FontAwesomeIcon icon={faCheckCircle} className="about-small-icon" />
@@ -49,53 +51,67 @@ function AboutSection() {
               </div>
             </div>
           </div>
-          
-          {/* Right Column - Business Information */}
+
+          {/* Right Column - ONLY CHANGES HERE */}
           <div className="about-right">
+            {/* Company Logo Section - NEW */}
+            <div className="company-logo-section">
+              <img 
+                src="/logo512.png" 
+                alt="Evis Security Networx Logo" 
+                className="company-logo"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div className="logo-fallback" style={{display: 'none'}}>
+                <div className="logo-text">EVIS</div>
+                <div className="logo-subtitle">Security Networx</div>
+              </div>
+            </div>
+
             <h3>Company Information</h3>
             
             <div className="business-info">
-              <div className="info-item">
-                <FontAwesomeIcon icon={faBuilding} className="info-icon" />
-                <div className="info-content">
-                  <strong>Nature of Business</strong>
-                  <span>Wholesaler & Supplier</span>
+              {/* Row 1: Nature of Business + Business Type */}
+              <div className="info-row">
+                <div className="info-item">
+                  <FontAwesomeIcon icon={faBuilding} className="info-icon" />
+                  <div className="info-content">
+                    <strong>Nature of Business</strong>
+                    <span>Wholesaler & Supplier</span>
+                  </div>
                 </div>
-              </div>             
-              <div className="info-item">
-                <FontAwesomeIcon icon={faUserTie} className="info-icon" />
-                <div className="info-content">
-                  <strong>Business Type</strong>
-                  <span>Security Systems Dealer</span>
-                </div>
-              </div>
-              
-              <div className="info-item">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="info-icon" />
-                <div className="info-content">
-                  <strong>Service Area</strong>
-                  <span>Delhi NCR & North India</span>
+                <div className="info-item">
+                  <FontAwesomeIcon icon={faBriefcase} className="info-icon" />
+                  <div className="info-content">
+                    <strong>Business Type</strong>
+                    <span>Security Systems Dealer</span>
+                  </div>
                 </div>
               </div>
-              
-              <div className="info-item">
-                <FontAwesomeIcon icon={faCertificate} className="info-icon" />
-                <div className="info-content">
-                  <strong>GST Number</strong>
-                  <span>07AFTPJ5684B1Z5</span>
+
+              {/* Row 2: Established + GST Number */}
+              <div className="info-row">
+                <div className="info-item">
+                  <FontAwesomeIcon icon={faCalendarAlt} className="info-icon" />
+                  <div className="info-content">
+                    <strong>Established</strong>
+                    <span>Since 2005</span>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="info-item">
-                <FontAwesomeIcon icon={faCalendarAlt} className="info-icon" />
-                <div className="info-content">
-                  <strong>Established</strong>
-                  <span>Since 2005</span>
+                <div className="info-item">
+                  <FontAwesomeIcon icon={faFileAlt} className="info-icon" />
+                  <div className="info-content">
+                    <strong>GST Number</strong>
+                    <span>07AFTPJ5684B1Z5</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </article>
+        </div>
       </div>
     </section>
   );

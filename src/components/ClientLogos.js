@@ -2,39 +2,31 @@ import React from "react";
 import "./ClientLogos.css";
 
 const ClientLogos = () => {
-  // Sample client data - you can replace with actual client logos
   const clients = [
     {
       id: 1,
       name: "Cafeteria & Co",
-      logo: "c&c.png", // Replace with actual logo path
+      logo: "c&c.png", 
       alt: "Cafeteria & Co"
     },
     {
       id: 2,
       name: "Denso",
-      logo: "denso.png", // Replace with actual logo path
+      logo: "denso.png", 
       alt: "Denso Corporation"
     },
     {
       id: 3,
       name: "AlukkA",
-      logo: "alukka.png", // Replace with actual logo path
+      logo: "alukka.png", 
       alt: "Client Company 3"
     },
     {
       id: 4,
-      name: "Client 4",
-      logo: "client4-logo.png", // Replace with actual logo path
-      alt: "Client Company 4"
-    },
-    {
-      id: 5,
-      name: "Client 5",
-      logo: "client5-logo.png", // Replace with actual logo path
-      alt: "Client Company 5"
-    },
-
+      name: "CTBC",
+      logo: "ctbc.png", 
+      alt: "Client Company 3"
+    }
   ];
 
   return (

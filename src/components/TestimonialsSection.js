@@ -3,7 +3,7 @@ import "./TestimonialsSection.css";
 
 const testimonials = [
   {
-    review: "Evis Networks transformed our office security. Reliable, fast service and great customer support!",
+    review: "Evis Networx transformed our office security. Reliable, fast service and great customer support!",
     name: "Rahul Sharma",
     role: "Business Owner, East of Kailash",
   },

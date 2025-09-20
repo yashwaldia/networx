@@ -44,9 +44,9 @@ const QuoteModal = ({ isOpen, onClose, selectedService = "General Security Servi
 
     try {
       // ⚠️ REPLACE THESE WITH YOUR ACTUAL KEYS FROM EMAILJS
-      const PUBLIC_KEY = "YOUR_PUBLIC_KEY_HERE";  // Replace with your public key
-      const SERVICE_ID = "YOUR_SERVICE_ID_HERE";   // Replace with your service ID  
-      const TEMPLATE_ID = "YOUR_TEMPLATE_ID_HERE"; // Replace with your template ID
+      const PUBLIC_KEY = "9Idiv5OqmIv8ECJJu";  // Replace with your public key
+      const SERVICE_ID = "service_4no1gwm";   // Replace with your service ID  
+      const TEMPLATE_ID = "template_g3pd2bk"; // Replace with your template ID
 
       // Initialize EmailJS
       emailjs.init(PUBLIC_KEY);

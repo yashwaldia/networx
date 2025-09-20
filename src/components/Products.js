@@ -23,7 +23,7 @@ const allProducts = [
     title: "CCTV Camera",
     description: "Advanced surveillance cameras with HD recording, night vision, and remote monitoring capabilities for comprehensive security coverage.",
     features: ["HD 4MP Resolution", "Night Vision Technology", "Remote Mobile Access", "Motion Detection Alerts"],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=300&q=80",
+    image: "cctv.png",
     category: "Surveillance"
   },
   {
