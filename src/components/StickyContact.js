@@ -14,19 +14,13 @@ function StickyContact() {
   return (
     <>
       <div className="sticky-contact">
-        <a href="tel:+918047812042" className="contact-icon phone">
+        <a href="tel:+919873300755" className="contact-icon phone">
           <FontAwesomeIcon icon={faPhoneAlt} />
         </a>
-        <button className="contact-icon email" onClick={handleEmailClick}>
-          <FontAwesomeIcon icon={faEnvelope} />
-        </button>
+         <a href="mailto:evisnetworx@yahoo.com" className="contact-icon email">
+        <FontAwesomeIcon icon={faEnvelope} />
+      </a>
       </div>
-
-      <QuoteModal 
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-        selectedService="General Security Services"
-      />
     </>
   );
 }

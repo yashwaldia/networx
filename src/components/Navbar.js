@@ -134,10 +134,10 @@ function Navbar() {
   };
 
   const products = [
-    { name: "CCTV Camera", href: "/products#cctv" },
-    { name: "Fire Alarm System", href: "/products#fire-alarm" },
-    { name: "Biometric System", href: "/products#biometric" },
-    { name: "Digital Door Lock", href: "/products#door-lock" }
+    { name: "CCTV Camera", href: "#products-section" },
+    { name: "Fire Alarm System", href: "#products-section" },
+    { name: "Biometric System", href: "#products-section" },
+    { name: "Digital Door Lock", href: "#products-section" }
   ];
 
   return (
@@ -148,7 +148,7 @@ function Navbar() {
           
           {/* Desktop Navigation */}
           <ul className="navbar-links desktop-nav">
-            <li><a href="#home" onClick={closeMobileMenu}>Home</a></li>
+            <li><a href="#hero" onClick={closeMobileMenu}>Home</a></li>
             <li><a href="#about" onClick={closeMobileMenu}>About</a></li>
             <li className="navbar-dropdown">
                           <a 

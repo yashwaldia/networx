@@ -79,7 +79,7 @@ function ProductsSection() {
 
   return (
     <>
-      <section className="products-section">
+      <section id="products-section" className="products-section">
         <div className="container">
           <h2>Our Products & Services</h2>
           <p className="products-subtitle">Comprehensive security solutions for homes and businesses</p>

@@ -158,7 +158,7 @@ function FooterSection() {
 
           {/* Quick Contact Info */}
           <div className="quick-contact-info">
-            <p><FontAwesomeIcon icon={faPhone} /> +91 98765 43210</p>
+            <p><FontAwesomeIcon icon={faPhone} /> +919873300755</p>
             <p><FontAwesomeIcon icon={faEnvelope} /> evisnetworx@yahoo.com</p>
           </div>
         </div>
@@ -176,7 +176,7 @@ function FooterSection() {
         <div className="footer-links">
           <a href="#hero">Home</a>
           <a href="#about">About</a>
-          <a href="#services">Services</a>
+          <a href="#products-section">Products</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
