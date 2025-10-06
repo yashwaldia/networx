@@ -3,8 +3,8 @@ body, html, #root {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: #f8fafc; /* Light gray background like Pelco */
-  color: #374151; /* Dark gray text */
+  background: #f8fafc; 
+  color: #374151; 
   font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
   font-size: 16px;
@@ -16,13 +16,13 @@ body, html, #root {
 }
 
 a {
-  color: #3b82f6; /* Blue links */
+  color: #3b82f6;
   text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  color: #111827; /* Dark text for headings */
+  color: #111827;
   margin: 0 0 0.6em 0;
   letter-spacing: -0.025em;
 }
@@ -41,5 +41,5 @@ section {
 p {
   font-size: 1rem;
   line-height: 1.7;
-  color: #6b7280; /* Gray text */
+  color: #6b7280;
 }

@@ -11,7 +11,6 @@
   padding: 0 1.5rem;
 }
 
-/* TOP SECTION: FAQ + Why Choose Us */
 .faq-top-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -20,7 +19,6 @@
   margin-bottom: 4rem;
 }
 
-/* LEFT SIDE - FAQs */
 .faq-left {
   padding-right: 2rem;
 }
@@ -103,7 +101,6 @@
   border-top: 1px solid #e5e7eb;
 }
 
-/* RIGHT SIDE - Why Choose Us */
 .faq-right {
   padding-left: 2rem;
   border-left: 1px solid #e5e7eb;
@@ -173,7 +170,6 @@
   font-weight: 500;
 }
 
-/* BOTTOM SECTION: Professional Excellence - Full Width */
 .professional-excellence {
   margin-top: 2rem;
   padding-top: 3rem;
@@ -236,7 +232,6 @@
   flex-shrink: 0;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .faq-top-content {
     gap: 3rem;

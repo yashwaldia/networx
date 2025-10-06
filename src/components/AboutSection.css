@@ -29,7 +29,6 @@
   margin-bottom: 3rem;
 }
 
-/* Two Column Layout */
 .about-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -38,7 +37,6 @@
   text-align: left;
 }
 
-/* Left Column Styles */
 .about-left p {
   color: #6b7280;
   font-size: 1.125rem;
@@ -66,7 +64,6 @@
   flex-shrink: 0;
 }
 
-/* Right Column Styles */
 .about-right {
   background: #f9fafb;
   border-radius: 16px;
@@ -144,7 +141,6 @@
     justify-content: center;
   }
 }
-/* Company Logo Styles - ADD ONLY THESE NEW CLASSES */
 .company-logo-section {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -197,7 +193,6 @@
   opacity: 0.9;
 }
 
-/* Info row layout for 2 items per row */
 .info-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -228,4 +223,16 @@
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }

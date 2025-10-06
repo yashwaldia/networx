@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./HeroSection.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
@@ -45,6 +45,8 @@ const heroSlides = [
 function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const heroRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
   const changeSlide = (newIndex) => {
     if (isAnimating) return;
@@ -66,7 +68,6 @@ function HeroSection() {
   };
 
   const handleLearnMore = () => {
-    // Open the blog link in a new tab
     window.open(heroSlides[currentSlide].buttonLink, '_blank');
   };
 
@@ -75,8 +76,30 @@ function HeroSection() {
     return () => clearInterval(interval);
   }, [currentSlide]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+    return () => {
+      if (heroRef.current) observer.unobserve(heroRef.current);
+    };
+  }, []);
+
   return (
-    <section id="hero" className="hero-section">
+    <section
+      id="hero"
+      className={`hero-section ${visible ? "animate-fade-in" : "hidden"}`}
+      ref={heroRef}
+    >
       <div className="hero-container">
         <div className={`hero-content ${isAnimating ? 'slide-out' : 'slide-in'}`}>
           <h1>
@@ -84,18 +107,14 @@ function HeroSection() {
             <span className="hero-title-accent">{heroSlides[currentSlide].subtitle}</span>
           </h1>
           <p>{heroSlides[currentSlide].description}</p>
-          
-          {/* Updated button with external link functionality */}
           <button className="hero-btn hero-learn-btn" onClick={handleLearnMore}>
             {heroSlides[currentSlide].buttonText}
             <FontAwesomeIcon icon={faExternalLinkAlt} className="hero-btn-icon" />
           </button>
-
           <div className="hero-navigation">
             <button className="hero-nav-btn" onClick={prevSlide}>
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
-            
             <div className="hero-indicators">
               {heroSlides.map((_, index) => (
                 <div
@@ -105,17 +124,15 @@ function HeroSection() {
                 />
               ))}
             </div>
-
             <button className="hero-nav-btn" onClick={nextSlide}>
               <FontAwesomeIcon icon={faChevronRight} />
             </button>
           </div>
         </div>
-
         <div className={`hero-image-container ${isAnimating ? 'slide-out' : 'slide-in'}`}>
           <div className="hero-image-3d">
-            <img 
-              src={heroSlides[currentSlide].image} 
+            <img
+              src={heroSlides[currentSlide].image}
               alt={`${heroSlides[currentSlide].serviceType} - Professional Security Solutions Delhi NCR`}
             />
             <div className="image-shadow"></div>

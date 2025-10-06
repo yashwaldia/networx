@@ -1,6 +1,6 @@
 .testimonials-section {
   width: 100vw;
-  background: #f9fafb; /* Light gray background */
+  background: #f9fafb;
   padding: 3rem 0;
   text-align: center;
   overflow: hidden;
@@ -9,7 +9,7 @@
 .testimonials-section h2 {
   font-size: 2rem;
   font-weight: 700;
-  color: #111827; /* Dark heading */
+  color: #111827; 
   margin-bottom: 2.5rem;
   letter-spacing: -0.5px;
 }
@@ -41,8 +41,8 @@
 
 .testimonial-card {
   flex: 0 0 300px;
-  background: #ffffff; /* White cards */
-  border: 1px solid #e5e7eb; /* Light border */
+  background: #ffffff; 
+  border: 1px solid #e5e7eb; 
   border-radius: 16px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   padding: 1.8rem 1.5rem;
@@ -67,7 +67,7 @@
 
 .testimonial-review {
   font-size: 1.05rem;
-  color: #374151; /* Dark gray text */
+  color: #374151; 
   font-style: italic;
   line-height: 1.5;
   margin-bottom: 1.2rem;
@@ -75,7 +75,7 @@
 }
 
 .testimonial-author {
-  border-top: 1px solid #e5e7eb; /* Light border */
+  border-top: 1px solid #e5e7eb; 
   padding-top: 1rem;
   text-align: left;
 }
@@ -83,16 +83,15 @@
 .testimonial-name {
   font-size: 1rem;
   font-weight: 700;
-  color: #111827; /* Dark heading */
+  color: #111827; 
   margin: 0 0 0.3rem 0;
 }
 
 .testimonial-role {
   font-size: 0.9rem;
-  color: #3b82f6; /* Blue accent */
+  color: #3b82f6; 
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .testimonials-section h2 {
     font-size: 1.5rem;

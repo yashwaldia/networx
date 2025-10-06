@@ -129,7 +129,6 @@ function Products() {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <div className="products-hero">
         <div className="container">
           <h1>Our Complete Product Range</h1>
@@ -137,7 +136,6 @@ function Products() {
         </div>
       </div>
       
-      {/* Products Grid */}
       <div className="products-content">
         <div className="container">
           <div className="products-grid-full">

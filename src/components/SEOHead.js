@@ -16,12 +16,11 @@ const SEOHead = ({
   const currentUrl = typeof window !== 'undefined' ? window.location.href : canonicalUrl;
   const siteName = "Evis Security Networx";
   
-  // Default JSON-LD for local business
   const defaultJsonLd = {
     "@context": "https://schema.org",
     "@type": "SecuritySystem",
     "name": "Evis Security Networx",
-    "image": "https://yourwebsite.com/logo.png",
+    "image": "logo.png",
     "description": description,
     "address": {
       "@type": "PostalAddress",
@@ -31,7 +30,7 @@ const SEOHead = ({
       "postalCode": "110001",
       "addressCountry": "IN"
     },
-    "telephone": "+91-9876543210",
+    "telephone": "+91-9873300755",
     "email": "evisnetworx@yahoo.com",
     "url": "https://yourwebsite.com",
     "openingHours": [
@@ -63,7 +62,6 @@ const SEOHead = ({
 
   return (
     <Helmet>
-      {/* Basic Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
@@ -74,7 +72,6 @@ const SEOHead = ({
       <meta name="language" content="English" />
       <meta name="revisit-after" content="1 days" />
       
-      {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
       
       {/* Open Graph Meta Tags */}
@@ -85,13 +82,6 @@ const SEOHead = ({
       <meta property="og:image" content={ogImage} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content="en_IN" />
-      
-      {/* Twitter Card Tags */}
-      <meta name="twitter:card" content={twitterCard} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      <meta name="twitter:site" content="@evissecurity" />
       
       {/* Local Business Schema */}
       <script type="application/ld+json">

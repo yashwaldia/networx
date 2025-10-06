@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Products.css";
-import QuoteModal from "../components/QuoteModal"; // Import the modal
+import QuoteModal from "../components/QuoteModal"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera, faFireExtinguisher, faFingerprint, faLock, faPhone, faVolumeUp, faWifi, faShieldAlt, faVideo, faBell, faArrowRight, faHome } from "@fortawesome/free-solid-svg-icons";
 
@@ -166,12 +166,11 @@ function Products() {
         </section>
       </div>
 
-      {/* Quote Modal - Product Page Version */}
       <QuoteModal 
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
         selectedService={selectedProduct}
-        isProductPage={true} // This makes the form shorter
+        isProductPage={true} 
       />
     </>
   );

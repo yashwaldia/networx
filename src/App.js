@@ -17,7 +17,7 @@ function App() {
       <HeroSection />
       <AboutSection />
       <ProductsSection />
-      <ClientLogos /> {/* Replace QuoteBanner with ClientLogos */}
+      <ClientLogos /> 
       <TestimonialsSection />
       <FAQSection />
       <FooterSection />

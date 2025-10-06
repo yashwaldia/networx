@@ -3,7 +3,6 @@
   background: #f9fafb;
 }
 
-/* Simple Navbar */
 .products-navbar {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -49,7 +48,6 @@
   transform: translateY(-1px);
 }
 
-/* Hero Section */
 .products-hero {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 6rem 0 4rem;
@@ -70,7 +68,6 @@
   margin: 0 auto;
 }
 
-/* Products Content */
 .products-content {
   padding: 4rem 0;
 }
@@ -236,7 +233,6 @@
   transform: translateX(4px);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .navbar-content {
     padding: 1rem 1.5rem;

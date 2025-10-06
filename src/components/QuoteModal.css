@@ -235,7 +235,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .quote-modal {
     width: 98%;

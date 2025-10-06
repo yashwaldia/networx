@@ -33,7 +33,6 @@
   line-height: 1.6;
 }
 
-/* Client Logos Grid */
 .client-logos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -79,7 +78,6 @@
   transform: scale(1.05);
 }
 
-/* Client Footer */
 .client-logos-footer {
   margin-top: 2rem;
   padding-top: 2rem;
@@ -93,7 +91,6 @@
   margin: 0;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .client-logos-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -156,7 +153,6 @@
   }
 }
 
-/* Optional: Animated scrolling version for many logos */
 .client-logos-scroll {
   overflow: hidden;
   white-space: nowrap;
@@ -181,4 +177,16 @@
 
 .client-logos-scroll:hover .client-logos-track {
   animation-play-state: paused;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }

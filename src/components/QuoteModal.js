@@ -34,7 +34,6 @@ const QuoteModal = ({ isOpen, onClose, selectedService = "General Security Servi
     setIsSubmitting(true);
     setSubmitStatus('');
 
-    // Validate required fields
     if (!formData.fullName || !formData.email || !formData.phone) {
       setSubmitStatus('error');
       setIsSubmitting(false);
@@ -43,12 +42,10 @@ const QuoteModal = ({ isOpen, onClose, selectedService = "General Security Servi
     }
 
     try {
-      // ⚠️ REPLACE THESE WITH YOUR ACTUAL KEYS FROM EMAILJS
-      const PUBLIC_KEY = "9Idiv5OqmIv8ECJJu";  // Replace with your public key
-      const SERVICE_ID = "service_4no1gwm";   // Replace with your service ID  
-      const TEMPLATE_ID = "template_g3pd2bk"; // Replace with your template ID
+      const PUBLIC_KEY = "9Idiv5OqmIv8ECJJu";  
+      const SERVICE_ID = "service_4no1gwm";   
+      const TEMPLATE_ID = "template_g3pd2bk"; 
 
-      // Initialize EmailJS
       emailjs.init(PUBLIC_KEY);
 
       const templateParams = {
@@ -73,7 +70,6 @@ const QuoteModal = ({ isOpen, onClose, selectedService = "General Security Servi
       setSubmitStatus('success');
       alert('Quote request sent successfully! We will contact you soon.');
       
-      // Reset form after successful submission
       setTimeout(() => {
         setFormData({
           fullName: '', email: '', phone: '', company: '',
@@ -176,7 +172,6 @@ const QuoteModal = ({ isOpen, onClose, selectedService = "General Security Servi
             </div>
           </div>
 
-          {/* Project Details - Show different fields based on page type */}
           {!isProductPage && (
             <div className="form-section">
               <h3>Project Details</h3>
@@ -270,7 +265,6 @@ const QuoteModal = ({ isOpen, onClose, selectedService = "General Security Servi
             </div>
           )}
 
-          {/* Simplified Project Details for Product Page */}
           {isProductPage && (
             <div className="form-section">
               <h3>Project Details</h3>
@@ -308,7 +302,6 @@ const QuoteModal = ({ isOpen, onClose, selectedService = "General Security Servi
             </div>
           )}
 
-          {/* Contact Preferences */}
           <div className="form-section">
             <h3>Contact Preferences</h3>
             <div className="form-row">
@@ -331,12 +324,10 @@ const QuoteModal = ({ isOpen, onClose, selectedService = "General Security Servi
                 </select>
               </div>
               <div className="form-group">
-                {/* Spacer for layout */}
               </div>
             </div>
           </div>
 
-          {/* Submit Section */}
           <div className="form-submit">
             {submitStatus === 'success' && (
               <div className="success-message">
