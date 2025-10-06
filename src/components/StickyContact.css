@@ -1,8 +1,7 @@
 .sticky-contact {
   position: fixed;
   right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 7rem; /* Position above the Botpress chatbot widget */
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -22,11 +21,7 @@
   transition: all 0.3s ease;
   text-decoration: none;
   border: none;
-  cursor: pointer; 
-}
-
-.contact-icon.phone {
-  background: #10b981;
+  cursor: pointer;
 }
 
 .contact-icon.email {
@@ -41,6 +36,7 @@
 @media (max-width: 768px) {
   .sticky-contact {
     right: 1rem;
+    bottom: 6rem; /* Adjust for mobile */
   }
 
   .contact-icon {

@@ -201,15 +201,15 @@ function FooterSection() {
             )}
           </form>
 
-          {/* Quick Contact Info */}
           <div className="quick-contact-info">
-            <p>
+            <a href="tel:+919873300755" className="quick-contact-link">
               <FontAwesomeIcon icon={faPhone} /> +919873300755
-            </p>
-            <p>
+            </a>
+            <a href="mailto:evisnetworx@yahoo.com" className="quick-contact-link">
               <FontAwesomeIcon icon={faEnvelope} /> evisnetworx@yahoo.com
-            </p>
+            </a>
           </div>
+
         </div>
       </div>
 
